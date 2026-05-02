@@ -134,7 +134,10 @@ function getIntervalMinutes(settings) {
 async function scheduleNextQuiz() {
   await chrome.alarms.clear(ALARM_NAME);
   const settings = await getSettings();
-  if (!settings.enabled) return;
+  if (!settings.enabled) {
+    await chrome.storage.local.remove("nextQuizAt");
+    return;
+  }
 
   await chrome.alarms.create(ALARM_NAME, { delayInMinutes: settings.intervalMinutes });
   await chrome.storage.local.set({

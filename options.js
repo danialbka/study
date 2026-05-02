@@ -43,6 +43,7 @@ async function init() {
   fields.testNow.addEventListener("click", testNow);
   fields.generateQuestions.addEventListener("click", generateQuestions);
   fields.sourceText.addEventListener("input", renderSourceChangeState);
+  fields.enabled.addEventListener("change", saveEnabledState);
 }
 
 function renderSettings(settings) {
@@ -63,6 +64,19 @@ async function saveSettings() {
     showStatus(error.message || "Could not save");
     return false;
   }
+}
+
+async function saveEnabledState() {
+  const enabled = fields.enabled.checked;
+  const { settings } = await chrome.storage.local.get("settings");
+  const nextSettings = {
+    ...normalizeSettings(settings),
+    enabled
+  };
+
+  await chrome.storage.local.set({ settings: nextSettings });
+  renderNextQuiz(enabled ? Date.now() + nextSettings.intervalMinutes * 60 * 1000 : null);
+  showStatus(enabled ? "Turned on" : "Turned off");
 }
 
 async function testNow() {
