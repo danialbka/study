@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Interrupter</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options-page">
+    <main class="settings-shell">
+      <header class="settings-header">
+        <div>
+          <h1>Quiz Interrupter</h1>
+          <p>Quiz cards on your schedule.</p>
+        </div>
+        <label class="switch">
+          <input id="enabled" type="checkbox">
+          <span></span>
+        </label>
+      </header>
+
+      <section class="settings-section">
+        <h2>Interval</h2>
+        <label>
+          Minutes
+          <input id="intervalMinutes" type="number" min="1" step="1">
+        </label>
+        <p id="nextQuiz" class="muted"></p>
+      </section>
+
+      <section class="settings-section">
+        <h2>Quiz source</h2>
+        <label>
+          Source
+          <textarea id="sourceText" rows="7" spellcheck="true" placeholder="Paste a topic, notes, syllabus points, or anything you want to be quizzed on."></textarea>
+        </label>
+        <button id="generateQuestions" type="button" class="secondary">Generate flashcards</button>
+        <p id="cardSummary" class="muted"></p>
+      </section>
+
+      <section class="settings-section api-section">
+        <h2>OpenRouter</h2>
+        <label>
+          API key
+          <input id="openRouterApiKey" type="password" autocomplete="off" placeholder="sk-or-...">
+        </label>
+      </section>
+
+      <footer class="settings-footer">
+        <button id="testNow" type="button" class="secondary">Test now</button>
+        <button id="save" type="button" class="primary">Save</button>
+      </footer>
+      <p id="status" class="status" role="status"></p>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

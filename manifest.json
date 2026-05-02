@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Quiz Interrupter",
+  "description": "Shows scheduled quiz cards that require an attempt before dismissing.",
+  "version": "0.1.0",
+  "permissions": ["alarms", "storage", "windows", "tabs", "clipboardWrite"],
+  "host_permissions": ["https://openrouter.ai/*"],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Quiz Interrupter",
+    "default_popup": "options.html"
+  }
+}

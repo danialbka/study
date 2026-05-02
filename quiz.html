@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="quiz-page">
+    <main class="quiz-card" aria-live="polite">
+      <header>
+        <p id="eyebrow">Quick check</p>
+        <h1 id="title">Quiz</h1>
+      </header>
+
+      <section id="prompt">
+        <p id="question" class="question"></p>
+        <textarea id="answer" rows="4" placeholder="Type an attempt here"></textarea>
+        <p id="feedback" class="feedback"></p>
+      </section>
+
+      <section id="result" class="result-screen" hidden>
+        <div id="resultIcon" class="result-icon"></div>
+        <h2 id="resultTitle"></h2>
+        <p id="resultSummary"></p>
+        <div class="result-block">
+          <h3>Improve</h3>
+          <p id="resultImprove"></p>
+        </div>
+        <div class="result-block">
+          <h3>Explanation</h3>
+          <p id="resultExplanation"></p>
+        </div>
+      </section>
+
+      <footer>
+        <button id="idk" type="button" class="secondary">I don't know</button>
+        <button id="submit" type="button" class="primary">Submit</button>
+      </footer>
+    </main>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
